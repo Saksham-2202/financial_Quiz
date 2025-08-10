@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: url('finImg.png');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.app {
+    background: linear-gradient(#fff, #84c2ff);
+    width: 40rem;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #001e4d;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 80%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    margin-left: 90px;
+    margin-top: -22px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #00c853;
+    transition: width 0.4s ease;
+}
+
+#pro_name{
+    font-size: 17px;
+    margin-bottom: 9px;
+    color: #001e4d; 
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quiz h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: linear-gradient(#e0fafe,#9fd3f9);
+    color: #222;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.btn:hover:not([disabled]) {
+    background: #003c9b;
+    color: #fff;
+}
+
+.btn:disabled {
+    cursor: no-drop;
+    opacity: 0.7;
+}
+
+#next-btn {
+    display: none;
+    background: #001e4d;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 15px auto 0;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#next-btn:hover {
+    background: #003080;
+}
+
+.correct {
+    background: #9aeabc !important;
+}
+
+.incorrect {
+    background: #ff9393 !important;
+}
