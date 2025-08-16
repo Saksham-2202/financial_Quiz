@@ -1,0 +1,108 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f0f5ff, #e6f0ff);
+    color: #333;
+    background-image: url(finImg.png);
+}
+
+/* Container Layout */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.home-header {
+    background: #004aad;
+    padding: 1.2rem;
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Main Section */
+.home-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    
+}
+
+.home-card {
+    background:linear-gradient(#fdfcfc,#92e3fa);
+    border-radius: 12px;
+    padding: 2rem 3rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    margin-top: -70px;
+}
+
+.home-title {
+    font-size: 1.8rem;
+    color: #004aad;
+    margin-bottom: 1rem;
+}
+
+.home-progress {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-weight:600;
+}
+
+/* Buttons */
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.home-btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resume-btn {
+    background: #28a745;
+    color: white;
+}
+
+.resume-btn:hover {
+    background: #218838;
+}
+
+.restart-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.restart-btn:hover {
+    background: #c82333;
+}
+
+/* Footer */
+.home-footer {
+    background: #004aad;
+    color: white;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+}

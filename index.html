@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Quiz App</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Budgeting Quiz - Home</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="app">
-        <h1>Budget and Savings Quiz</h1>
+    <div class="home-container">
+        <!-- Top Branding -->
+        <header class="home-header">
+            <h1 class="home-logo"> Global Reward Center</h1>
+        </header>
 
-        <!-- Progress Bar -->
-         <div class="prog">
-            <p id="pro_name">Progress : </p>
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        </div>
+        <!-- Main Welcome Section -->
+        <main class="home-main">
+            <div class="home-card">
+                <h2 class="home-title">Welcome to the Budgeting Quiz</h2>
+                <p id="quiz-home-progress" class="home-progress">Loading your progress...</p>
+                
+                <div class="home-buttons">
+                    <button id="quiz-home-resume" class="home-btn resume-btn">Resume Quiz</button>
+                    <button id="quiz-home-restart" class="home-btn restart-btn">Restart Quiz</button>
+                </div>
+            </div>
+        </main>
 
-        <div class="quiz">
-            <h2 id="questions">Question goes here</h2>
-            <div id="answer-button"></div>
-            <button id="next-btn">Next</button>
-        </div>
+        <!-- Footer -->
+        <footer class="home-footer">
+            <p>© 2025 Global Reward Center | All Rights Reserved</p>
+        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="home.js"></script>
 </body>
 </html>
