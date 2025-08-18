@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budgeting Quiz - Home</title>
-    <link rel="stylesheet" href="home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budgeting Quiz</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="home-container">
-        <!-- Top Branding -->
-        <header class="home-header">
-            <h1 class="home-logo"> Global Reward Center</h1>
-        </header>
+  <div class="bck">
+  <!-- Home Screen -->
+  <div class="home-container" id="home-screen">
+    <header class="home-header" style="font-size: 2rem;">BACHAT GURU</header>
+    <main class="home-main">
+      <div class="home-card">
+        <h1 class="home-title">Welcome to Budgeting Quiz</h1>
+        <p class="home-progress">Test your financial knowledge!</p>
+        <div class="home-buttons">
+          <button class="home-btn resume-btn" id="homeResumeBtn">Resume</button>
+          <button class="home-btn restart-btn" id="homeRestartBtn">Restart</button>
+        </div>
+      </div>
+    </main>
+    <footer class="home-footer">&copy All rights reserved TEAM UR4NIUM</footer>
+  </div>
 
-        <!-- Main Welcome Section -->
-        <main class="home-main">
-            <div class="home-card">
-                <h2 class="home-title">Welcome to the Budgeting Quiz</h2>
-                <p id="quiz-home-progress" class="home-progress">Loading your progress....</p>
-                
-                <div class="home-buttons">
-                    <button id="quiz-home-resume" class="home-btn resume-btn">Resume Quiz</button>
-                    <button id="quiz-home-restart" class="home-btn restart-btn">Restart Quiz</button>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="home-footer">
-            <p>© 2025 Global Reward Center | All Rights Reserved</p>
-        </footer>
+  <!-- Quiz Screen -->
+   <header class="home-header" style="font-size: 2rem;">BACHAT GURU</header>
+  <div class="app" id="quiz-screen" style="display: none;">
+    
+    <h1>Budget and Savings Quiz</h1>
+    <div id="quiz-card">
+      <div id="level-container"><strong>Level <span id="quizLevel">1</strong></span></div>
+      <div class="level-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      
+      <div class="quiz">
+        <h2 id="questions">Question Text</h2>
+        <div id="answer-buttons"></div>
+        <button id="next-btn">Next</button>
+      </div>
     </div>
-
-    <script src="home.js"></script>
+  </div>
+  
+</div>
+  <!-- JS Scripts -->
+  <script src="home.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

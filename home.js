@@ -1,23 +1,27 @@
-const homeProgressText = document.getElementById("quiz-home-progress");
-const homeResumeBtn = document.getElementById("quiz-home-resume");
-const homeRestartBtn = document.getElementById("quiz-home-restart");
+document.addEventListener("DOMContentLoaded", () => {
+    const homeScreen = document.getElementById("home-screen");
+    const quizScreen = document.getElementById("quiz-screen");
+    const resumeBtn = document.getElementById("homeResumeBtn");
+    const restartBtn = document.getElementById("homeRestartBtn");
 
-let savedLevel = localStorage.getItem("quizLevel");
-let savedQuestionNumber = localStorage.getItem("quizQuestionNumber");
+    // Resume quiz
+    if (resumeBtn) {
+        resumeBtn.addEventListener("click", () => {
+            homeScreen.style.display = "none";
+            quizScreen.style.display = "block";
+            localStorage.setItem("resumeMode", "true");
+            window.dispatchEvent(new Event("startQuiz"));
+        });
+    }
 
-if (savedLevel && savedQuestionNumber) {
-    homeProgressText.textContent = `You last stopped at Level ${savedLevel}, Question ${savedQuestionNumber}`;
-    homeResumeBtn.disabled = false;
-} else {
-    homeProgressText.textContent = "No saved progress found. Start a new quiz!";
-    homeResumeBtn.disabled = true;
-}
-
-homeResumeBtn.addEventListener("click", () => {
-    location.href = "ques.html";
-});
-
-homeRestartBtn.addEventListener("click", () => {
-    localStorage.clear();
-    location.href = "ques.html";
+    // Restart quiz
+    if (restartBtn) {
+        restartBtn.addEventListener("click", () => {
+            localStorage.clear();
+            homeScreen.style.display = "none";
+            quizScreen.style.display = "block";
+            localStorage.setItem("resumeMode", "false");
+            window.dispatchEvent(new Event("startQuiz"));
+        });
+    }
 });

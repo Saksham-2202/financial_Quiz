@@ -1,183 +1,148 @@
+/* Reset & Base */
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-}
-html, body {
-    height: 100%; /* ensure full screen height */
-    margin: 0;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  justify-content: center;
+  
 }
 
-body {
-    background: url('finImg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100vh;
-    justify-content: center;
-    display: flex;
-    flex-direction: column; /* header, content, footer stack */
-    padding-top: 64px; /* space for fixed header */
-    position: relative;
-    
+.bck{
+    background: url("finImg.png") no-repeat center center fixed;
+    background-size: cover; /* Ensures the image stretches properly */
+    height: 100vh;
 }
 
+/* Quiz Screen */
 .app {
-    flex: 1; /* fills space between header and footer */
-    display: flex; /* centers content inside */
-    flex-direction: column;
-    justify-content: center; /* vertical center */
-    background: linear-gradient(#fff, #84c2ff);
-    width: min(40rem, 95vw);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    margin: 0 auto; /* center horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-position: center;
+  width: min(40rem, 95vw);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: 40px auto;
+  max-height: fit-content;
+  margin-top: 9rem;
+  
 }
 
-
-
-h1 {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #001e4d;
+/* Quiz Title */
+.app h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #001e4d;
 }
 
-/* Progress Bar */
-.progress-container {
-    width: 80%;
-    height: 10px;
-    background: #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    margin-left:80px; /* ✅ center it */
-    margin-right: auto; /* ✅ center it */
-    margin-top: -22px;
-    margin-bottom: -1px;
+/* Progress Info */
+#level-container {
+  font-size: 21px;
+  font-weight: bold;
+  color: #001e4d;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.level-container {
+  width: 80%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  margin: 10px auto 15px;
+  overflow: hidden;
+
+
 }
 
 .progress-bar {
-    height: 100%;
-    width: 0%;
-    background: #00c853;
-    transition: width 0.4s ease;
-  
-   
-}
-#level-container {
-    
-    font-size: 21px;
-    font-weight: bold;
-    color: #001e4d;
-    margin-bottom: 10px;
-}
-#questions{
-    margin-bottom:10px;
+  height: 100%;
+  width: 0%;
+  background: #00c853;
+  transition: width 0.4s ease;
 }
 
+/* Profile Name */
 #pro_name {
-    font-size: 17px;
-    margin-bottom: 9px;
-    color: #010f27; 
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 17px;
+  color: #010f27; 
+  font-weight: 700;
+  
 }
 
+/* Question */
 .quiz h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #333;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    line-height: 1.4;
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+  line-height: 1.4;
+  text-align: center;
 }
 
-.btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    border: 1px solid #333;
-    background: linear-gradient(#e0fafe,#9fd3f9);
+#questions{
+    font-size: 23px;
     color: #222;
-    cursor: pointer;
-    transition: all 0.4s;
+}
+#pro-name{
+margin-left: -100px;
+}
+
+
+/* Answer Buttons */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: linear-gradient(#e0fafe,#9fd3f9);
+  color: #222;
+  cursor: pointer;
+  transition: all 0.4s;
 }
 
 .btn:hover:not([disabled]) {
-    background: #003c9b;
-    color: #fff;
+  background: #003c9b;
+  color: #fff;
 }
 
 .btn:disabled {
-    cursor: no-drop;
-    opacity: 0.7;
+  cursor: no-drop;
+  opacity: 0.7;
 }
 
+/* Next Button */
 #next-btn {
-    display: none;
-    background: #001e4d;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 15px auto 0;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+  display: none;
+  background: #001e4d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 15px auto 0;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 #next-btn:hover {
-    background: #003080;
+  background: #003080;
 }
 
+/* Answer States */
 .correct {
-    background: #9aeabc !important;
+  background: #9aeabc !important;
 }
 
 .incorrect {
-    background: #ff9393 !important;
-}
-
-.home-header {
-    position: fixed;      /* full-width top bar */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 16px;
-     background: #004aad;
-}
-
-.home-logo {
-    margin: 0;
-    color: #fff;
-    text-align: center;
-    font-size: clamp(22px, 5vw, 40px); /* scales nicely on Pixel */
-}
-
-/* Small screens */
-@media (max-width: 600px) {
-    h1 { font-size: 24px; }
-    .quiz h2 { font-size: 18px; }
-    .app { padding: 16px; }
-}
-.home-footer{
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    color: rgb(255, 255, 255);
-    font-weight: 30px;
-    margin-bottom: -20px;
+  background: #ff9393 !important;
 }

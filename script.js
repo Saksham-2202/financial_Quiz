@@ -1,9 +1,11 @@
 const questionElement = document.getElementById("questions");
-const answerButtons = document.getElementById("answer-button");
+const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const progressBar = document.getElementById("progress-bar");
 const quizLevelDisplay = document.getElementById("quizLevel");
 const quizCard = document.getElementById("quiz-card");
+const quizbox = document.querySelector(".app");
+
 
 if (questionElement && answerButtons && nextButton && progressBar && quizLevelDisplay && quizCard) {
     let allQuestions = [];
@@ -16,8 +18,7 @@ if (questionElement && answerButtons && nextButton && progressBar && quizLevelDi
     const totalQuestions = totalLevels * questionsPerLevel;
     let totalAnswered = 0;
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const resumeMode = urlParams.get("resume") === "true";
+    let resumeMode = localStorage.getItem("resumeMode") === "true";
 
     async function fetchQuestions() {
         try {
@@ -51,9 +52,9 @@ if (questionElement && answerButtons && nextButton && progressBar && quizLevelDi
         questions = allQuestions.slice(startIndex, startIndex + questionsPerLevel);
         quizLevelDisplay.textContent = level;
 
-        if (level === 1) quizCard.style.background = "linear-gradient(to bottom, #fafafaff, #87eafbff, #1a9eb6ff)";
-        else if (level === 2) quizCard.style.background = "linear-gradient(to bottom, #f1f4e8ff, #eced88ff, #cfd156ff)";
-        else if (level === 3) quizCard.style.background = "linear-gradient(to bottom, #fbebebff, #eaacacff, #ca6060ff)";
+        if (level === 1) quizbox.style.background = "linear-gradient(to bottom, #fafafaff, #87eafbff, #1a9eb6ff)";
+        else if (level === 2) quizbox.style.background = "linear-gradient(to bottom, #f1f4e8ff, #eced88ff, #cfd156ff)";
+        else if (level === 3) quizbox.style.background = "linear-gradient(to bottom, #fbebebff, #eaacacff, #ca6060ff)";
     }
 
     function startQuiz() {
@@ -117,9 +118,19 @@ if (questionElement && answerButtons && nextButton && progressBar && quizLevelDi
         saveProgress();
         nextButton.style.display = "block";
     }
+    
+    let gameFinished = false;
 
     function handleNextButton() {
+        if (gameFinished) {
+            document.getElementById("quiz-screen").style.display = "none";
+            document.getElementById("home-screen").style.display = "block";
+            gameFinished = false; // reset
+            return;
+        }
+
         currentQuestionIndex++;
+
         if (currentQuestionIndex < questions.length) {
             showQuestion();
         } else {
@@ -141,9 +152,7 @@ if (questionElement && answerButtons && nextButton && progressBar && quizLevelDi
         nextButton.innerHTML = "Go to Home";
         nextButton.style.display = "block";
         localStorage.clear();
-        nextButton.onclick = () => {
-            window.location.href = "index.html";
-        };
+        gameFinished = true; // ✅ signal end of quiz
     }
 
     function updateProgressBar() {
@@ -159,7 +168,7 @@ if (questionElement && answerButtons && nextButton && progressBar && quizLevelDi
     function saveProgress() {
         localStorage.setItem("quizLevel", currentLevel);
         localStorage.setItem("quizQuestionIndex", currentQuestionIndex);
-        localStorage.setItem("quizQuestionNumber", currentQuestionIndex + 1); // for home display
+        localStorage.setItem("quizQuestionNumber", currentQuestionIndex + 1);
         localStorage.setItem("totalAnswered", totalAnswered);
         localStorage.setItem("quizScore", score);
     }
@@ -168,5 +177,19 @@ if (questionElement && answerButtons && nextButton && progressBar && quizLevelDi
         handleNextButton();
     });
 
-    fetchQuestions();
+    // ✅ Listen for startQuiz event
+    window.addEventListener("startQuiz", () => {
+        resumeMode = localStorage.getItem("resumeMode") === "true";
+
+        // 🔥 FIX: When restarting, always reset values
+        if (!resumeMode) {
+            score = 0;
+            totalAnswered = 0;
+            currentLevel = 1;
+            currentQuestionIndex = 0;
+            resetProgressBar();
+        }
+
+        fetchQuestions();
+    });
 }
