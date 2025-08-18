@@ -14,10 +14,10 @@ if (savedLevel && savedQuestionNumber) {
 }
 
 homeResumeBtn.addEventListener("click", () => {
-    window.location.href = `ques.html?resume=true`;
+    location.href = "ques.html";
 });
 
 homeRestartBtn.addEventListener("click", () => {
     localStorage.clear();
-    window.location.href = `ques.html?resume=false`;
+    location.href = "ques.html";
 });
